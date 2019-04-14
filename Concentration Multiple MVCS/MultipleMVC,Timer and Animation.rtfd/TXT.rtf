@@ -1,0 +1,828 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 LucidaGrande-Bold;\f2\fnil\fcharset0 Menlo-Bold;
+\f3\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red128\green0\blue128;\red255\green255\blue255;\red0\green0\blue0;
+\red92\green38\blue153;}
+{\*\expandedcolortbl;;\csgenericrgb\c50196\c0\c50196;\csgenericrgb\c100000\c100000\c100000;\csgenericrgb\c0\c0\c0;
+\csgenericrgb\c35922\c14825\c60191;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid101\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid102\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listname ;}\listid2}
+{\list\listtemplateid3\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid201\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid3}
+{\list\listtemplateid4\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{check\}}{\leveltext\leveltemplateid301\'01\uc0\u10003 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid4}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}{\listoverride\listid4\listoverridecount0\ls4}}
+\margl1440\margr1440\vieww9000\viewh8400\viewkind0
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls1\ilvl0
+\f0\fs24 \cf0 {\listtext	\uc0\u8226 	}Multiple MVS\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls2\ilvl1\cf0 {\listtext	\uc0\u8259 	}Tab bar,Navigation and split view controller\
+{\listtext	\uc0\u8259 	}Demo: Theme Chooser in Concentration\
+\pard\tx220\tx720\tx1120\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls2\ilvl0\cf0 {\listtext	\uc0\u8226 	}Timer\
+{\listtext	\uc0\u8226 	}Animation\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls2\ilvl1\cf0 {\listtext	\uc0\u8259 	}UiViewPropertyAnimator\
+{\listtext	\uc0\u8259 	}Transitions\
+\pard\tx560\tx1120\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+\
+\
+Multiple MVC's\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 5.25.04 PM.png \width13780 \height7660 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\
+\
+When we have MVC's working together MVC is a part of View for another MVC.\
+And that has some ramification for MVC it has to have blind structured communication back to the MVC.\
+But that's the way we structure it and that keeps everything well contained and understandable.\
+\
+So how we do that?\
+How we make MVC's that are view of other MVC's.\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 5.31.37 PM.png \width13600 \height7600 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+So combining MVC's we do this using some special  controllers that iOS whose view is other MVC's.\
+Now you could write your own special MVC whose view is  other MVC's.\
+But 99% of the time you are gonna use one of  the 3 iOS provides\
+\
+The 3 iOS provides are \
+
+\b UITabBarController\
+UISplitViewController\
+UINavigationController\
+\
+
+\b0 There are other ways to combine MVC's but this is primary way that we combine MVC's\
+
+\b UITabBarController , UISplitViewController , UINavigationController 
+\b0 are the controllers of MVC's\
+\
+\
+\
+\
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc\partightenfactor0
+
+\b \cf0 UITabBarController\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 has tabs at bottom
+\b0  of the screen and each one you press it shows another MVC.\
+So you can already see TabBarController views includes the buttons at the bottom and another MVC. So it what we mean by the view of this tab bar controller MVC gives another MVC.\
+The icon and title that appears down in the TabBar that's determined which MVC is showing.\
+In specific UI view controller has this TabBar item and the TabBar controller when it shows the MVC as part of its view it looks at that so it knows what the title and icon to display down at the bottom there.\
+This is very object oriented in that sense\
+\
+{{\NeXTGraphic Screen Shot 2019-04-14 at 5.39.43 PM.png \width13280 \height6920 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\
+\
+\
+\
+\
+\
+\
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 5.40.45 PM.png \width13500 \height7480 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+For example here we have got some sort of health oriented API here and  we have got the four tabs at the bottom.\
+ 
+\b By the way , if there's more than 4 tabs more than 4 MVC's it can show that .\
+It will actually show five  and if there are six then the fifth one becomes a little more button and you click it.\
+And iOS provides an API or UI, rather for the user to pick which tabs they want to be there a the bottom or to pick some other tab that's not showing . \
+Generally though  we recommend no more than five MVC's in a TabBarController. That''s kinda just pretty good UI
+\b0 \
+It's just starts to get a little complicated for the suer if there's more than that. So, in this case this whole thing is 5 MVC's the TabBarController itself and the 4 MVC's that serve as it's view and you just switch between them by clicking .\
+So this is by far the easiest of the MVC's of MVC's\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc\partightenfactor0
+
+\b \cf0 UISplitViewController\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\b0 \cf0 Put 2 MVC's side by side ...\
+Probably the 2nd simplest one.\
+It's only 2 MVC's\
+view and it puts them side by side with a very thin line in between them. \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 5.51.14 PM.png \width13300 \height7480 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\
+example, here's a calculator app\
+It's got the calculator on the left and then it's got maybe a graph of what's in the calculator on the right .\
+And
+\b  we call this MVC that's on the left and it's usually smaller like this, the Master in the SplitViewController and we call the on the right the Detail.
+\b0 \
+And we call them master detail because usually what you do on the one on the left affects what happens on the right. \
+It's the master , the detail is kind of little bit of a slave .\
+And of course this is on iPad . It also works on iPhone plus but not on plus iphones.this is little side by side mechanism\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 5.57.16 PM.png \width13000 \height7540 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\
+You can of course  rotate your iPad and when you rotate your iPad into portrait , now it will only show detail,\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 6.02.18 PM.png \width13300 \height7480 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\
+\
+\
+ except for you can slide out with your finger from left and see master then slide it back.Now on iPhone plus in portrait , it acts like a normal iPhone , it doesn't have a slide out. Even if an iPhone Plus is not quite wide enough to slide that thing out.\
+So SplitViewController is super easy\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 6.02.58 PM.png \width13480 \height7440 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc\partightenfactor0
+
+\b \cf0 UINavigationController\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\b0 \cf0 This is probably the most flexible , most powerful of the MVC's of MVC's you have seen .\
+You have seen this a million times in iOS apps.\
+You can think of a NavigationController MVC a deck of cards.\
+And each card is an MVC.\
+and now what the navigation Controller does is let you put an MVC on top obscuring all the one's below.\
+And then if you hit the back button it throws that one away and shows you the one that was there before . And you can keep going back and it keeps showing the cards off the top and you put new cards back on. So its like a card stack where the stack are MVC's .\
+And you can see that the navigation controller as part of its view it does actually draw a little bit at the top.It draws a little title ("Settings"). that's not part of the MVC that's showing there . But the content that are in that little are driven by whatever MVC's on top of the card stack , the one that's showing . So that's called "setting" because the MVC that's there is the settings MVC. So it's being driven by what's there.\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 6.18.14 PM.png \width12340 \height7200 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+And each MVC similar with the tab bar item in  the 
+\b UITabBarController
+\b0  there's a var in UIViewController called 
+\b navigationItem.
+\b0 \
+And that contains things like the title and other buttons that you put in the title bar , all kinds of stuff.\
+Check docs for navigationItem and see what kind of things the navigationController can do for you when your MVC is on top of the stack.\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\pard\tx220\tx720\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\li720\fi-720\pardirnatural\partightenfactor0
+\ls3\ilvl0\cf0 {\listtext	\uc0\u8226 	}Pushes and pops MVC's off of a stack (like a stack of cards)\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 6.19.30 PM.png \width12500 \height6980 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 If we touch on something , this is tableView , then a new MVC slides in and animates in on top.Now there are 2 cards on this stack.\
+All setting which was one which is now behind we cant see it and now this new one on top of course .\
+By the way you can also have a toolbar items on the bottom using toolbar items of viewcontroller , so those 2 of our items would come and go as new ones come on the stack.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 6.24.20 PM.png \width12940 \height7260 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+But also notice that when we have 2 things on there a little back button appears in the upper left  automatically. \
+It even has the name of the one that's lower down on the stack of cards.\
+And if you press that, of course it's gonna throw this card away and we will be back at the other card. \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 6.27.21 PM.png \width13200 \height7320 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\
+ But let's imagine I click on accessibility thing. It put a new card on there that's the accessibility card .\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 6.34.18 PM.png \width3760 \height5120 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 6.34.36 PM.png \width7300 \height5060 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0  May be I click on something on accessibility card like larger text and it puts another one on .\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 6.34.55 PM.png \width3400 \height5060 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}{{\NeXTGraphic Screen Shot 2019-04-14 at 6.35.34 PM.png \width7060 \height5300 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+ Now we have 4 MVC's on the stack.\
+So there's a total of 5 MVC's here. The navigation Controller itself which is an MVC and these 4 MVC's which are part of its view .\
+\
+ And of course we can backup if we press back button and it throws that card away and it actually does throws the card away. Throws it our of the heap. So its complete throw away this card now gets thrown away we are just now seeing the card on the underneath until we go all the way the back , To the beginning and now we are seeing the root card , the root view controller , this is navigationController\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 6.35.56 PM.png \width3700 \height5140 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 6.36.19 PM.png \width3840 \height5120 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 6.36.35 PM.png \width3920 \height5140 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 6.36.47 PM.png \width3940 \height5080 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0  \
+\
+\
+\
+\
+\
+\
+\
+here's how navigationController works from an MVC's standpoint.\
+{{\NeXTGraphic Screen Shot 2019-04-14 at 6.43.11 PM.png \width8020 \height4920 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\
+So let's say we have a MVC that's shown here and we have more API or more UI than I can fit on my screen , so we need to go to another screen to do more UI\
+That's the little thing in the corner right here.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 6.45.01 PM.png \width11400 \height5640 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 well to do that we have to make another MVC that will control that UI and then when we make our NavigationController to have them share the screen ,\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 6.46.00 PM.png \width11620 \height5700 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0  the navigationController comes up and this is what it's UI look's like . \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 6.46.32 PM.png \width14960 \height6120 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+But as soon as you set a very important var in navigationController called its r
+\b ootViewController
+\b0 . to be some MVC, \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 6.47.11 PM.png \width14840 \height5860 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 then its view now includes the view of that MVC.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 6.48.03 PM.png \width11900 \height6060 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\
+and then if you interact with some button or something that's in that MVc' view\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 6.49.18 PM.png \width12520 \height7060 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\
+It can move to this other MVC(push it on the stack)\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 6.50.11 PM.png \width13500 \height6820 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\
+\
+Now the other MVC is still there , it's just kind of behind the scenes because it's lower on the stack and a back button will automatically appear as we saw.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 6.52.00 PM.png \width13380 \height6100 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 6.53.55 PM.png \width12720 \height5800 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+When we click this back we move back to the other one and notice that the MVC that we had originally added on there is gone . \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 6.54.14 PM.png \width12900 \height7180 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 6.54.31 PM.png \width6240 \height5620 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\
+So it's very important to understand as we use this .\
+The navigationController.\
+Usually when we put  things on we are creating a  new one and when we take things off we are throwing it away.\
+That is the normal operation of a navigationController.It can be used in other ways but that is it's normal operation.\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 7.09.25 PM.png \width14800 \height7840 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+So how do you get at them ? \
+Each of those 3 different kinds of MVC's has a 
+\b var called viewController
+\b0 .
+\b (It's just an array of view controller)
+\b0 \
+So for a tab bar it's just the view controllers 1,2,3,4 in order from left to right.\
+If it's a split-view Controller then view Controller [0] is the master  and viewController[1] is the detail or sometimes we say the first thing in the array is the master and the last thing in the array is the detail.\
+And if it's a navigationController then  viewController[0] is the rootviewController and all these cards lined on top are the other viewControllers in the array in order. So that's how you can get at all the viewControllers that are in one of the MVC's of MVC's.\
+\
+\
+Now how do you get at the MVC of MVC's itself ? .\
+How do you get to the navigationController,the splitViewcontroller?\
+Well there are 3 awesome vars in UI viewController called tabBarController , splitViewController and  navigationController . And they will tell you the tabBar controller you are in or the splitViewController you are in or the NavigationController you are in . \
+It might be   more than one because you might be inside a navigationController as the master in a splitViewController .\
+Which might even be in a tab of a tab bar controller , so you could be in all 3 of these things and this will return what you are in.\
+So this way can kinda get at other MVC's that are involved in whatever combination of MVC's you have .\
+So it's really good kind of access\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 7.11.23 PM.png \width14240 \height4540 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+Now navigationController it has a method called pushViewController and  popViewController, both can be animated.\
+And that takes an MVC and put's it on the stack of your cards or popViewController pops the top one off.\
+\
+So you can do that pushing and popping, but we don't usually do it that way.\
+We usually use what are called 
+\b segues
+\b0 .\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 7.25.01 PM.png \width14200 \height5240 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\
+\
+So how do we wire all of this stuff in our storyboard up?Okay how do we get these navigationControllers and splitViewController and tabBarControllers all hooked up to our MVC's\
+Ofcourse we do it with Ctrl + drag in the interface builder\
+we do everything with Ctrl + drag (constraints, outlets, actions all of these stuff with Ctrl + drag )\
+And we use Ctrl + drag to do this as well.\
+So lets look at an example of a splitViewController.If I wanted to have a couple of MVC's and set them as the master and detail  in splitViewController\
+I would just drag out a splitViewController from object palette . It will come with a bunch of extra Vc's by the way view controller is kind of that it come with for or fun for free.\
+I'm not sure why it does it . we usually almost delete them. And ctrl + drag from object palette .\
+And then we Ctrl + drag from splitViewController to our master and we drag to our detail.\
+\
+Same thing with tabBarController , we drag it out and then we just Ctrl drag to each of the MVC's in there. \
+NavigationController is a little bit   different\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+So this is what it looks like approximately in interface builder , here's the calculator again I dragged out  a splitViewController there on the left , I just Ctrl drag to the master \
+and I choose Master ViewController from the thing that pops up.\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 7.28.18 PM.png \width9080 \height7280 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 7.28.24 PM.png \width8600 \height7160 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 7.28.31 PM.png \width8840 \height7160 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 7.28.36 PM.png \width8700 \height7300 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 7.28.43 PM.png \width9480 \height7260 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+I Ctrl drag the other one I choose detail bam I have got a wired up splitViewController \
+\
+\
+Now the splitView can really only do it's thing fully on an iPad because there's just not enough screen real estate on other devices to really do this side by side thing , especially the portrait mode slide out thing, there's just not enough room there .\
+ 
+\b So what we often do is wrap the master in a navigationController and when we do that then the system can show it on an iPhone and in a splitViewController on an iPad.
+\b0 \
+It will automatically adapt , that's the word we use to describe that to the environment it's in\
+So that makes it really easy for us to build UI's that work for on both .\
+They work on ipads, they work on iPhones.Okay same exact storyboard\
+\
+So here's what it looks like.\
+here's our split view with our master and detail there we are looking at the master and we are selecting it and we are going to\
+ menu -> editor -> embed in navigationController.\
+So instead of dragging the navigationController out, which we could do  just ctrl + drag, but instead of dragging it out  you can actually embed in navigationController.\
+And
+\b  it will insert a navigationController MVC in as the master and make our previous thing that was  the master be it's rootViewController\
+So now we have a navigationController wrapping around the master of our split view .
+\b0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 8.04.37 PM.png \width14380 \height8760 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 8.05.51 PM.png \width14280 \height8700 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 8.08.20 PM.png \width14120 \height8740 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 8.09.02 PM.png \width14120 \height8800 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\
+This also has a nice benefit , it puts a title on your master, which is often nice to have a title of your master of your splitview.\
+one thing to notice of course is that now the master of your split view  is longer the calculator it's a navigation Controller.\
+So if you actually wanted to get out the calculator you would have to get the master and then look at the master's rootViewController to find the calculator there.\
+By the way, you can also put the detail , wrap it in a navigationController .The only reason you would ever wanna do that is to give it a title bar , because you always navigate from the master that's why it's called the master.So you can do it, but again if you do that make sure when you look at the detail , if you that it's a navigationController you need to  look inside and see the thing that's inside of it , rootViewController or you can also use 
+\b visibleViewController
+\b0  on a navigationController , that will tell you the card  that's on the top that's visible . \
+that's how we wire up split views navigationControllers together\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+How do we make it so that when we click something in a view it causes some card to slide on , or it causes the detail of our split view to change?\
+We are doing the calculator we enter some equation , we press the graph button.\
+Well in the iPhone we want slide a graph in front on the stack and on the iPad we want to replace the detail view with a graph of what's in our current calculator.\
+So how do we do that? We do that with what's called 
+\b segues
+\b0  .\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\pard\tx220\tx720\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\li720\fi-720\pardirnatural\qc\partightenfactor0
+\ls4\ilvl0
+\b \cf0 {\listtext	
+\f1 \uc0\u10003 
+\f0 	}Segues\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc\partightenfactor0
+
+\b0 \cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 8.37.55 PM.png \width14380 \height7520 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+
+\b A segue just makes a brand new MVC , always a new MVC.
+\b0 \
+It makes it and put's it on the top of the stack and puts it on the top of the stack or  puts it in the right side of a splitViewController.\
+\
+So here are the kinds of segues that exist.\
+(1)
+\b Show segue 
+\b0 : - that's the kind of segue that works in a navigationController. That causes the new MVC to be put on top of a stack \
+if you are not inside a navigation Controller you probably shouldn't be doing show segue .\
+(2)
+\b show detail Segue
+\b0 :- that works in a splitView. So show detail will replace the right side of the split View \
+(3) 
+\b Modal Segue
+\b0  :- takes over the entire screen.So forgot about any navigation controllers or split view controllers or tabBar view controller.It takes over the entire screen and it just fills the screen with MVC, We generally try to avoid Model because it puts the app in this kind of stuck state where it's only the MVC the app  in this kind of stuck  state where it's only the MVC that you have taken over the screen with is active can be kind of disconcerting for the user but sometimes we do want things to be modal\
+(4) 
+\b Popover Segue 
+\b0 :- is kind of like a Modal segue but instead of taking over the whole screen  it just puts it up in a little popover.You have seen that on an iPad especially . But it's still modal because the background is grayed out and you can't interact with it.You can only do thing in the popover . \
+\
+\
+\
+\
+\
+(*****)I am just 
+\b re-emphasizing that segues always create a new instance of the MVC
+\b0 .\
+Segues always create a new instance of the MVC. This is important to understand .You are gonna be reusing some MVC that you had on screen before.\
+By the way the back button in a navigation controller is not a 
+\b segue
+\b0  .\
+
+\b (******)That's just part of the navigation controller so when you go back you are not creating a new MVC you are going back to the one that was on the stack underneath.
+\b0 \
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 8.39.38 PM.png \width13680 \height3420 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\
+\
+so how do we make these segues  happen?\
+Ctrl+drag .\
+it can also be done in code \
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 8.39.58 PM.png \width12420 \height7980 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 9.33.11 PM.png \width11380 \height7300 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 9.33.17 PM.png \width13440 \height7560 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 9.33.23 PM.png \width12760 \height7240 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+So if i have this calculator example. here's my split view controller with a navigation controller around the master and I have got a button in my calculator which is show me a graph of what's currently in the calculator. I just ctrl + drag from that button down to the lower left here to my detail.\
+And when I let go of the control drag a little black window is gonna to come up and there is it more detail and it will choose the show detail segue there.\
+Now we will create this little line .\
+Which we can click on and inspect and that little line is called a segue. So that's  a thing in your storyboard that you can inspect and why do you wanna inspect that little line?.\
+Mostly because you wanna give a unique identifier which is just a string.\
+
+\b So I am just gonna call this for example "Show  Graph"  because that's what this segue does. And then i my code , I can refer to that segue by the name "Show  Graph" .\
+everything in interface builder file all these storyboard is always referenced by name
+\b0 . And the great thing about that is you can copy and paste things to one storyboard to another as long as the names in your code are their right names , it will just work .So that's why it goes by name . it does everything by name.\
+Some people kind of think its kind of can be a little annoying that you have to have  these names that are exactly the same in the code and in the storyboard.\
+But it turns out to be quite a flexible thing to do it that way.\
+ A little more work for programmer to ensure that those things are same but kinda worth it in flexibility . So that's the main thing you wanna inspect.\
+you can also inspect whether it's show detail or show .\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 9.33.30 PM.png \width14460 \height7360 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\
+\
+So that identifier why do we wan it and where would we use it in our code?What's an example ? Well one way is you can perform a segue from code .\
+So manually cause a segue to happen.  \
+to do that we need to know which segue it is in the storyboard you want to perform manually and so you can do perform segue.\
+We dont usually perform manually.We dont usually do it that often.\
+Because the real way we do it is just the ctrl dragging and that's gonna automatically segue from that button so we dont need to do it from code.\
+The most important use of identifier is to prepare the MVC that you are segueing  to .\
+Think about the calculator example. I press graph and it's going to show me a graph , presumably it's going to show me a graph of what's in my calculator.\
+Well I have to somehow let that new graphing MVC know what equation to graph .\
+We call that preparing that MVC to do it's job and segues always create a new MVC \
+So they always have to be prepared to do what they do.\
+\
+\
+\
+\
+\
+\
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 9.52.18 PM.png \width13660 \height8280 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 9.53.15 PM.png \width13920 \height7760 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+So we do that with a function called 
+\f2\b \cf2 \cb3 func
+\f3\b0 \cf4  prepare(for segue: \cf5 UIStoryboardSegue\cf4 , sender: 
+\f2\b \cf2 Any
+\f3\b0 \cf4 ?)
+\f0 \cf0 \cb1 \{\}\
+This function is implemented in the MVC that is causing the segues to happen .\
+It's obviously the only one who could prepare the new MVC to be ready to go\
+This is what that method looks like.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\b \cf0 Prepare for segue.\
+It has 2 arguments : \
+(1)segue 
+\b0 (which is a UI storyboard segue ) . That segue mostly just has the identifier and also the MVC that we need to prepare.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 The MVC that it just created , that we are going to segue to \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\b \cf0 (2)sender :- (that's the button or the line in a table view or if you are doing it from code it can be almost anything that's why it's of type any) 
+\b0 That cause this segue to happen, that could also be nil.It's just happening , you dont know or care who did it.\
+So that's what those 2 arguments are.\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 9.54.22 PM.png \width14560 \height8120 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 10.26.12 PM.png \width14320 \height8060 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 10.26.20 PM.png \width13940 \height8380 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 10.26.26 PM.png \width14240 \height7880 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\
+\
+\
+first thing we do is take a look at identifier , our segue identifier which could be nil, It shouldn't be you always wanna set an identifier in you storyboard.\
+But we look at it here we gonna switch on it, although we can use if else \
+and find out which segue it is.\
+And that's because an MVC can have multiple different buttons each that segue to a different kind of MVC.\
+So we obviously have to prepare them differently. So we need to know which one is which.\
+So that's why we check the identifier to see which segue we are talking about.\
+then we need to get the MVC that we are segueing to and prepare it .\
+\
+Okay 
+\b segue.destination
+\b0  that var segue.\
+that var destination in the segue object is passed to you. that is view controller that you are segueing to the brand new just created MVC .\
+But the type of that argument is not gonna be a graphController or something like that, it's going to be just UIViewController.\
+that's because Segue . \
+UIStoryboard Segue class each var has to have a type and it cant know anything about a graph. \
+It was written by Apple years ago.\
+So it's a type UIViewController.\
+So that means we have to use  
+\b as
+\b0   the typecasting to downcast it. to the kind of MVC controller we think this is based on which segue it is. So in this case it's the calculator case , I think it's a graph controller that controls one of these graphing things. So i am going to downcast . If that fails then obviously I can't prepare it.\
+So that's why I fo if let there . \
+may be if it doesn't fail then now I can set properties in the graph controller call methods whatever is necessary to get it to know what function to graph so that it can do its job and prepare it.\
+
+\b Very important to understand prepare for segues.You can't do any multiple MVC stuff without understanding this method.It's most important method in all of multiple MVC's.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\b0 \cf0 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 10.26.33 PM.png \width13780 \height8220 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+It is absolutely crucial to understand  that when you are executing these yellow lines you are preparing that MVC when that's happening.\
+That MVC's outlets have not been set yet. So all those outlets like our Concentration the card buttons, the flip count all those labels they are all nil.Now they are implicitly unwrapped optional, but they are still gonna get unwrapped when you try to access them.This will cause many crashes in your app because you will forget oops and during preparing .\
+I accidentally accessed one of my outlets.\
+Especially since when you are preparing , you kinda want the outlets because you are trying to prepare the UI.\
+But you have to get used to this happens before . I am not sure why they made this decision to do this, but it can be pain.\
+I mean sometimes when you prepare the MVC that you are preparing it's just collecting the information.\
+And then in its
+\b  view did load which is a function  that we know is called after our outlets are hooked up.\
+
+\b0 Then you talk to the outlets and parcel out the information or whatever . So it can be annoying\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-14 at 10.26.40 PM.png \width13720 \height4980 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\
+\
+\
+You can prevent a segue from happening with this method \
+\
+\pard\tx593\pardeftab593\pardirnatural\partightenfactor0
+
+\f3 \cf4 \cb3     
+\f2\b \cf2 override
+\f3\b0 \cf4  
+\f2\b \cf2 func
+\f3\b0 \cf4  shouldPerformSegue(withIdentifier identifier: \cf5 String\cf4 , sender: 
+\f2\b \cf2 Any
+\f3\b0 \cf4 ?) -> \cf5 Bool\cf4  \{
+\f0 \cf0 \
+
+\f3 \cf4         <#code#>
+\f0 \cf0 \
+
+\f3 \cf4     \}
+\f0 \cf0 \cb1 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+In UIViewController, you get the identifier, if you return false from this then the segue will not happen.\
+So some will click on that graph button the system looks at this method . If it says no , then it will not segue to a new graph controller.\
+It's just like you never even clicked on that button.\
+It is pretty rare to do but occasionally , you might wanna do it.\
+}

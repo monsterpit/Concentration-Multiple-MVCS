@@ -1,0 +1,97 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 Times-Roman;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+\margl1440\margr1440\vieww9000\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 NSAttributed String\
+\
+
+\b A String with attributes attached to each character\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 C
+\b0 onceptually, an object that pairs a String and a Dictionary of attributes for each Character(i.e. every character in the screen has  a dictionary attached to it and that dictionary has  can have lots of  keys and values that says how to draw that character on screen)(So those dictionary can have font,color,etc)\
+\
+The dictionary keys are things like "the font" or "the color" etc.\
+\
+The dictionary values depend on what the key is (UIFont or UIColor or whatever)\
+\
+Many times(almost always),large ranges of characters have the same Dictionary.\
+\
+Often the entire NSAttributedString uses the same Dictionary.\
+\
+\
+\
+\
+
+\b Creating and using an NSAttributedString\
+
+\b0 Here's how we had make the flip count label have orange ,outlined text ...\
+\
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl480\slmult1\pardirnatural\partightenfactor0
+\cf0 // creating Attributed Dictionary\
+
+\b let attributes : [NSAttributedStringKey : Any] = [ //note:type cannot be inferred here\
+.strokeColor : UIColor.orange,\
+.strokeWidth : 5.0 //negative number here would mean fill (positive means outline)\
+]\
+\
+// assigning 
+\b0 Attributed Dictionary to string
+\b \
+let attribtext = NSAttributedString(string : "Flips : 0",attributes : attributes)\
+// using attributed string\
+flipCountLabel.attributedText = attribtext      // Uibutton has attributedTitle\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\
+\
+\
+\
+\
+When you declare those attributes the little dictionary that goes on each character you have to give it an explicit type you cannot let the type be inferred and that because those values could be font colors ,whatever.\
+So swift can't infer what the value of the dictionary is so the type that you are going to use here is keys are nsattributed key ,going through docs to see what choices are e.g. font, underline, strikethrough and value is  "Any"\
+\
+"Any" is special swift thing that means anything can go here any struct,class or any type, this is very non-swift because swift is strongly typed and here there is no type. So you would never have an API like this in swift.This  weren't in objective C API brought forward to swift you would never have it\
+\
+(***)In swift alternate for "Any" could be enum like font and associated value could be font same with color well we don't have enum when objc did this so we are stuck with "Any".\
+\
+Never  use "Any" in your data structure . Any is purely so we can deal with these all objc things\
+\
+StrokeColor => Strokes outside of text\
+foregroundColor => color inside of the text(fill color)\
+backgroundColor => highlighter background text\
+strokewidth => if +ve number it outlines \
+			if -ve number its solid\
+\
+
+\b0 \
+\
+\ul Peculiarities of NSATtributedString\ulnone \
+\
+NSAttributedString is a completely different data structure than String.\
+The "NS" is a clue that it is an "old style" Objective-C class.\
+Thus it is not really like String(for example it's a class, not a struct)\
+Since it's not a value type , you cant create a mutuable NSAttributedString by just using var.\
+\
+To get mutability , you have to use a subclass of it called NSMutableAttributedString.\
+NSAttributedString was constructed with NSString in mind, not swift's String\
+
+\b NSString and String use slightly different encodings.\
+Wacky characters like emoji would have different encoding so would be bit of an issue.\
+\
+There is some automatic bridging between old Objective C stuff and swift types.(So if you have any iOS API that takes in NSString you can pass in Swift string except this little encoding doesn't always get picked up ri8)\
+But it can be tricky with NSString to String bridging because of varying-length Unicodes.\
+\
+This all doesn't matter if the entire string has the same attribute\
+Or if the NSAttributedString doesn't contain "wacky unicode characters (
+\f1\fs48 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \'e9
+\f0\fs24 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 )"\
+Otherwise be careful indexing into NSAttributedString.
+\b0 \
+}

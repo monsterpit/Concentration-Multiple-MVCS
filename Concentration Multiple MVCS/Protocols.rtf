@@ -1,0 +1,355 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 Times-Roman;\f2\fnil\fcharset0 AppleColorEmoji;
+\f3\fnil\fcharset0 Monaco;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+\margl1440\margr1440\vieww9000\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Protocols(IS a TYPE)\
+It can be used almost anywhere any other type is used : vars,function parameters,etc.\
+\
+A type which is a declaration of functionality only\
+No data storage of any kind (so it doesnt make sense to say its a "value" or "reference" type)\
+Essentially provides multiple inheritance (of functionality only, not storage) in swift\
+\
+\
+Protocol is the way for a caller to call an API with anything they want any class,struct,enum they can pass they want in and at the same time receiving method can specify what it really want\
+So both side get to do what they want \
+receiving thing gets what it wants the thing you are passing to do and thing passing in can pass whatever it wants as long as it does that thing\
+\
+Protocols are list of vars and methods\
+\
+What are protocols good for?\
+Making API more flexible and expressive\
+Blind,Structured communication between View and controller(delegation)\
+Mandating behavior(e.g. the keys of a Dictionary must be hashable)\
+Sharing functionality in disparate types(String ,Array,CountableRange are all collections)\
+Multiple inheritance (of functionality, not data)\
+\
+There are 3 aspects to a protocol\
+1.the protocol declaration(which properties and methods are in the protocol)\
+2.a class, struct, or enum declaration that makes the claim to implement the protocol\
+3. the code in said class, struct or enum (or extension) that implements the protocol\
+\
+In swift you have to implement all methods/properties in protocol \
+But in objective C protocols had optional methods\
+any protocol that has optional methods must be marked @objc\
+Any class that implements an optional protocol must inherit from NSObject\
+These sorts of protocols are used often in iOS for delegation \
+Except for delegation , a protocol with optional methods is rarely (if ever) used.\
+As you can tell from @objc designation it's mostly for backwards compatibility\
+\
+\
+\
+\pard\tx1271\pardeftab720\sl280\sa240\partightenfactor0
+
+\f1 \cf0 \ul \ulc0 Declaration Of protocol\cf2 \expnd0\expndtw0\kerning0
+\ulnone \
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\b \cf0 \kerning1\expnd0\expndtw0 protocol SomeProtocol : InheritedProtocol1, InheritedProtocol2\{\
+\pard\pardeftab720\sl480\slmult1\partightenfactor0
+\cf0 var someProperty : Int \{get set\}\
+func aMetho(arg1 : Double,anotherArgument : String)-> SomeType\
+mutating func chnageIt()\
+init(arg : Type)\
+\}\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\b0 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 Anyone that implements SomeProtocol must also implement InheritedProtocol1, InheritedProtocol2\
+You must specify whether a property is get only or both get and set\
+Any functions that are expected to mutate the receiver should be marked 
+\b \cf0 \kerning1\expnd0\expndtw0 mutating
+\b0 \cf2 \expnd0\expndtw0\kerning0
+(unless you are going to restrict your protocol to class implementers only with 
+\b \cf0 \kerning1\expnd0\expndtw0 class
+\b0 \cf2 \expnd0\expndtw0\kerning0
+ keyword)\
+You can even add a init in a protocol\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f0 \cf0 \kerning1\expnd0\expndtw0 \
+protocol that can be used only for class and cant be used by struct ,this is rarely being done\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f1\b \cf0 protocol SomeProtocol : class,InheritedProtocol1, InheritedProtocol2\{\
+\pard\pardeftab720\sl480\slmult1\partightenfactor0
+\cf0 var someProperty : Int \{get set\}\
+func aMetho(arg1 : Double,anotherArgument : String)-> SomeType\
+func chnageIt()\
+init(arg : Type)\
+\}
+\f0\b0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+\
+\
+\ul Protocols\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \ulnone How an implement says "I implement  that protocol"\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl480\slmult1\pardirnatural\partightenfactor0
+
+\b \cf0 class someClass : SuperClassOfSomeClass,SomeProtocol,AnotherProtocol\{\
+//implementation of SomeClass here\
+//which must include all the properties and methods in SomeProtocol and AnotherProtocol\
+\}
+\b0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+Claims of conformance to protocol are listed after the superclass for a class(obviously enums and structs would not have the superclass part)\
+Any number of protocol can be implemented by a given class struct or enum\
+In a class,
+\b init 
+\b0 must be marked 
+\b required
+\b0  (or otherwise a subclass might not conform)\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl480\slmult1\pardirnatural\partightenfactor0
+
+\b \cf0 class someClass : SuperClassOfSomeClass,SomeProtocol,AnotherProtocol\{\
+//implementation of SomeClass here\
+required init(...)\
+//which must include all the properties and methods in SomeProtocol and AnotherProtocol\
+\}
+\b0 \
+\
+You are allowed to add Protocol conformance via an extension\
+e.g.\
+\
+
+\b Extension Int : SomeProtocol\{\
+// implementaion of Protocol\
+\}\
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\b0 \cf0 Delegation:-\
+A very important simple use of protocols\
+It's a way to implement "blind communication" between View and its Controller\
+\
+How it plays out..\
+1.A view declares a delegation protocol(i.e. what the view wants the Controller to do for it)\
+2.The View API has a weak delegate property whose type is that delegation protocol \
+3. The View uses the delegate property to get/do things it cant own or control on its own\
+4. The controller declares that it implements the protocol \
+5. The controller sets delegate of the view to itself using property in #2 above\
+6.The Controller implements the protocol(probably it has lots of optional methods in it)\
+\
+Now the View is hooked up to the controller\
+But the View still has no idea what the Controller is,so the View remains generic/reusable\
+\
+This mechanism is found throughout iOS\
+However , it was designed pre-closures in swift . it was designed in Objc . Closure are sometimes a better options\
+\
+\
+Example \
+UiScrollView \
+\
+weak var delegate : UIScrollViewDelegate?\
+\
+The UIScrollViewDelegate\{\
+@objc protocol UIScrollViewDelegate\{\
+optional func scrollViewDidScroll(scrollView : UIScrollView)\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 optional func viewForZooming(in scrollView : UIScrollView)\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 ... and many more...\
+\}\
+\}\
+\
+A controller with UIScrollView in its view would be declared \
+class MyViewController : UIViewController,UIScrollViewDelegate\{...\}\
+..probably in the @IBOutlet didSet for the scroll view ,the Controller would do...\
+scrollView.delegate = self\
+.. and the controller then would implement any of the protocol's methods it is interested in.\
+\
+\
+\
+Being a key in the Dictionary\
+\
+To be a key in a Dictionary , you have to be able to be unique.\
+A key in a Dictionary does this by providing an Int that is very probably unique(a hash) and then also by implementing equality tesing to see if 2 keys are,in fact ,the same\
+\
+This is enforced by requiring that a Dictionary's Keys implement the hasble protocol \
+her's what that protocol looks like..\
+\
+
+\b Hashable is followed  by Equatable because Hashable (hashtable when you hash something it is likely to be an unique hash but it is not guaranteed) so you have to follow it up with == to see if it is actually to see if 2 things are actually equal
+\b0 \
+\
+
+\b protocol Hashable :Equatable\{\
+var hashValue : Int \{get\}\
+\}
+\b0 \
+\
+Very simple : Note though , that Hashable inherits from Equatable..\
+\
+That means that to be Hashable you have to implement Equatable\
+The Equatable protocol looks like this ...\
+\
+
+\b protocol Equatable\{\
+static func ==(lhs: Slef,rhs : Self)->Bool\
+\}\
+
+\b0 \
+Types that confrom to Equatable have to have type function (note that static) called ==\
+The arguments to == are both same type (i.e. Self of the type is type itself)\
+\
+The == operator also happens to looks for such a static method to provide implementaion\
+\
+\
+// In swift names of func/methods can be emoji  \
+func 
+\f2 \uc0\u55356 \u57219 
+\f3 ()\{\}\
+\
+Dictionary is then declared like this : Dictionary<key: Hashable,Value>\
+This restricts keys to be things that conform to Hashable(there's no restriction on values)\
+\
+\
+\ul Advanced use of Protocols\
+\
+\ulnone Multiple inheritance with protocol\
+CountableRange implements many protocols, but here are a couple of important ones ...\
+Sequence - makeIterator(and thus supports \ul for in\ulnone )\
+Collection - subscripting(i.e. []) ,index(offsetBy:),index(of:),etc.\
+\
+Why do it this way?\
+Because Array, for example also implements these protocols.\
+So now Apple can create generic code that operates on a collection and it will work on both!\
+Dictionary is also a Collection, as is Set and String.\
+\
+And
+\f2  
+\f3 they
+\f2  
+\f3 dont
+\f2  
+\f3 all
+\f2  
+\f3 just
+\f2  
+\f3 inherit
+\f2  
+\f3 the
+\f2  
+\f3 fact
+\f2  
+\f3 that
+\f2  
+\f3 they
+\f2  
+\f3 implement
+\f2  
+\f3 the
+\f2  
+\f3 methods
+\f2  
+\f3 in
+\f2  
+\f3 Collection,they
+\f2  
+\f3 actually
+\f2  
+\f3 inherit
+\f2  
+\f3 an
+\f2  
+\f3 implementation
+\f2  
+\f3 of
+\f2  
+\f3 many of the methods in collections\
+\
+for protocol it is possible is provide default implementation of methods this makes use possible to implement index(of:) for all of this classes in 1 place.So thats why think it has a multiple inheritance because it actually inherit implementations\
+So where do we put this protocols ??? we put those in extension of protocol\
+\
+Using extension to provide implementation\
+we said that protocol implementation is provided by implementing types(struct,enum,class)
+\f2 \
+
+\f3 However,an
+\f2  
+\f3 extension
+\f2  
+\f3 can
+\f2  
+\f3 be
+\f2  
+\f3 used
+\f2  
+\f3 to
+\f2  
+\f3 add
+\f2  
+\f3 default
+\f2  
+\f3 implementation
+\f2  
+\f3 to
+\f2  
+\f3 a
+\f2  
+\f3 protocol
+\f2 \
+
+\f3 Since
+\f2  
+\f3 there's
+\f2  
+\f3 no
+\f2  
+\f3 storage
+\f2  
+\f3 said
+\f2  
+\f3 implementation
+\f2  
+\f3 has
+\f2  
+\f3 to
+\f2  
+\f3 be in terms of other API in the protocol\
+(and any API in any protocol that protocol inherits from,of course)\
+\
+For example for the Sequence protocol you really only need to implement makeIterator.(An iterator implements the IteratorProtcol which just has the method next())\
+If you do ,you will automatically get implementations for all these other methods in Sequence:\
+\ul conatins(),forEach(),joined(separator:),min(),max(),even filter() and map(),\ulnone \
+All of these are \ul implemented via an extension to the Sequence protocol.\
+\
+\ulnone This extension (provided by Apple) uses only sequence protocol methods in its implementaion.\
+extension Sequence\{\
+func contains(_ element : Element)->Bool\{\}\
+//etc.\
+\}\
+\
+\ul filter,map are functions that takes closures
+\f2 \ulnone \
+
+\f3 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 If you redefine an already existing func in protocol in extension it will replaces the default implementation \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\ul Default implementation is valuable because you can have this really powerful protocols and you have to implement only 1 of the method and you get implementations for all of them and then they are shared among all different classes like Array,String,CountableRange , they get all this implementations they dont have to implement anyone of those they get it for free\
+\
+Generic,Value typing, var vs let, immutability control, constraining things by protocols, extensions of protocols all this things add up to support a kind of programming called functional programming\
+\
+Functional Programming:-\
+\
+\ulnone By combining protocols with generics and extensions (default implementations), you can build code that focuses more on the behavior of data structures than storage.\
+This approach to development is called functional programming\
+It is different than object oriented programming ("its sort of an evolution thereof")\
+Swift supports both object oriented and functional programming paradigms\
+\
+Swift Foundation(dictionary,array,string) those are all built with functional programming model.(mix between haskell (pure functional programming language and java(purely object oriented language))}
