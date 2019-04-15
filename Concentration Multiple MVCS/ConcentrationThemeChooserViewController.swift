@@ -6,6 +6,11 @@
 //  Copyright © 2019 MB. All rights reserved.
 //
 //SplitViewController (1) Launch Setting -> Display & Brightness -> View -> Standard -> Set
+//Now did we break the iPhone version?, because we did a lot of iPad work here we added a splitView which doesn't work on iPhone
+//and we changed the segue to show detail.The iPhone cant show splitView so it can't show detail does this break everything.
+//The answer is No because iOS is really smart and it know the structure of having splitView with a navigation Controller inside it even with show details that when we are on iPhone do it all in your navigation controller
+// This called adapting to different trait collection
+
 import UIKit
 
 class ConcentrationThemeChooserViewController: UIViewController {
