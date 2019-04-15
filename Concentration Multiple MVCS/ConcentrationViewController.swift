@@ -8,7 +8,8 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+//Renaming class name to ConcentrationViewController from ViewController using cmd + click
+class ConcentrationViewController: UIViewController {
     
     private lazy var game = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
     
@@ -27,7 +28,7 @@ class ViewController: UIViewController {
     
     private func updateFlipCountLabel(){
         //creating NSAttribute
-        let attributes : [NSAttributedString.Key: Any] = [ .strokeWidth : 5,.strokeColor: #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 1)]
+        let attributes : [NSAttributedString.Key: Any] = [ .strokeWidth : 5,.strokeColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)]
         
         //creating NSAttributedString
         let attributedString = NSAttributedString(string: "Flips: \(flipCount)", attributes: attributes)
@@ -70,11 +71,11 @@ class ViewController: UIViewController {
             let card = game.cards[index]
             if card.isFaceUp{
                 button.setTitle(emoji(for: card), for: .normal)
-                button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                button.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
             }
             else{
                 button.setTitle("", for: .normal)
-                button.backgroundColor = card.isMatched ?  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0) :  #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 1)
+                button.backgroundColor = card.isMatched ?  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0) :  #colorLiteral(red: 0.01680417731, green: 0.1983509958, blue: 1, alpha: 1)
             }
             
             // MARK:- Crash App
@@ -83,7 +84,18 @@ class ViewController: UIViewController {
 //            }
         }
     }
-
+    
+    //for choosing theme
+    var theme : String? {
+        didSet{
+            emojiChoices = theme ?? ""
+                //resetting emoji that we have set so far because it might be from different theme
+            emoji = [:] // [:] empty dictionary because swift would be able to infer the type from  [Card:String]()
+            //finally what if someone sets my view and i am in middle of the game ? I think i better update the View . So that whatever is showing  if it's got a wrong theme will update to new theme
+            updateViewFromModel()
+        }
+    }
+    
     private var emojiChoices = "👻🎃😈🍭😱🙀🍎🦇"
     
     //private var emoji = [Int:String]()

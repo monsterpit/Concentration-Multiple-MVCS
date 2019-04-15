@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2C0F44B72248C52300E468FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0F44B62248C52300E468FC /* AppDelegate.swift */; };
-		2C0F44B92248C52300E468FC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0F44B82248C52300E468FC /* ViewController.swift */; };
+		2C0F44B92248C52300E468FC /* ConcentrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0F44B82248C52300E468FC /* ConcentrationViewController.swift */; };
 		2C0F44BC2248C52300E468FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C0F44BA2248C52300E468FC /* Main.storyboard */; };
 		2C0F44BE2248C52500E468FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C0F44BD2248C52500E468FC /* Assets.xcassets */; };
 		2C0F44C12248C52500E468FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C0F44BF2248C52500E468FC /* LaunchScreen.storyboard */; };
@@ -27,7 +27,7 @@
 /* Begin PBXFileReference section */
 		2C0F44B32248C52300E468FC /* Concentration Multiple MVCS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Concentration Multiple MVCS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C0F44B62248C52300E468FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2C0F44B82248C52300E468FC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2C0F44B82248C52300E468FC /* ConcentrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcentrationViewController.swift; sourceTree = "<group>"; };
 		2C0F44BB2248C52300E468FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2C0F44BD2248C52500E468FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C0F44C02248C52500E468FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -75,7 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				2C0F44C82248C57700E468FC /* Supporting Files */,
-				2C0F44B82248C52300E468FC /* ViewController.swift */,
+				2C0F44B82248C52300E468FC /* ConcentrationViewController.swift */,
 				2C0F44C92248EDDC00E468FC /* Concentration.swift */,
 				2C0F44CB2248EF4B00E468FC /* Card.swift */,
 				2C0F44BA2248C52300E468FC /* Main.storyboard */,
@@ -181,7 +181,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C0F44B92248C52300E468FC /* ViewController.swift in Sources */,
+				2C0F44B92248C52300E468FC /* ConcentrationViewController.swift in Sources */,
 				2C0F44B72248C52300E468FC /* AppDelegate.swift in Sources */,
 				2C0F44CA2248EDDC00E468FC /* Concentration.swift in Sources */,
 				2C0F44CC2248EF4B00E468FC /* Card.swift in Sources */,
@@ -331,7 +331,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7K3L2DSZ26;
+				DEVELOPMENT_TEAM = 46VFTMYGW3;
 				INFOPLIST_FILE = "Concentration Multiple MVCS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -349,7 +349,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7K3L2DSZ26;
+				DEVELOPMENT_TEAM = 46VFTMYGW3;
 				INFOPLIST_FILE = "Concentration Multiple MVCS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
