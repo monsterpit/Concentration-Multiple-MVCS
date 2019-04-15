@@ -35,7 +35,30 @@ class ConcentrationThemeChooserViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
+        //        if segue.identifier == "Choose Theme"{
+        //            if let button = sender as? UIButton{
+        //                if let themeName = button.currentTitle{
+        //                    if let theme = themes[themeName]{
+        //
+        //                    }
+        //                }
+        //            }
+        //        }
+        
+        //        if segue.identifier == "Choose Theme"{
+        //            if let button = sender as? UIButton{
+        //                if let themeName = button.currentTitle,let theme = themes[themeName]
+        //                {
+        //                }
+        //            }
+        //        }
+        
+        if segue.identifier == "Choose Theme"{
+            //Optional Chaining
+            if let themeName = (sender as? UIButton)?.currentTitle,let theme = themes[themeName]
+            {
+            }
+        }
     }
 
 
