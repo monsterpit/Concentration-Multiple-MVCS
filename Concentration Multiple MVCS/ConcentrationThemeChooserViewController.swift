@@ -11,6 +11,11 @@
 //The answer is No because iOS is really smart and it know the structure of having splitView with a navigation Controller inside it even with show details that when we are on iPhone do it all in your navigation controller
 // This called adapting to different trait collection
 
+//TabBar
+//relationship viewcontroller it's not a segue,it's just adding it has a view controller
+//Image that go in TabBar item is alpha only image.So all the drawing you do is with transparent pixels or opaque once
+//And if they are transparent then kind of iOS is gonna shine light through those transparent pixels and that's what gonna show up as your tab bar.
+//The other thing you can do that's kinda cool is you can reorder the tabs
 import UIKit
 
 class ConcentrationThemeChooserViewController: UIViewController {
