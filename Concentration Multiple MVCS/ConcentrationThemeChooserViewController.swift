@@ -37,10 +37,21 @@ class ConcentrationThemeChooserViewController: UIViewController {
     //You can also use that should perform segue method to conditional segue
     
     @IBAction func changeTheme(_ sender: Any) {
+        if let cvc = splitViewDetailConcentrationViewController {
+        if let themeName = (sender as? UIButton)?.currentTitle,let theme = themes[themeName]{
+            cvc.theme = theme
+        }
+        }
+        else{
         performSegue(withIdentifier: "Choose Theme", sender: sender)
+        }
     }
    
-    
+    //var that find splitView detail controller as a ConcentrationViewController
+    //if all condition pass we where able to find ConcentrationViewController in splitViewController detail controller
+    private var splitViewDetailConcentrationViewController : ConcentrationViewController?{
+        return splitViewController?.viewControllers.last as? ConcentrationViewController
+    }
     
     
     // MARK: - Navigation
