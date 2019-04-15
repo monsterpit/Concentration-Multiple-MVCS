@@ -21,23 +21,25 @@ import UIKit
 class ConcentrationThemeChooserViewController: UIViewController {
 
 
-//kinda very bad which is I am gonna look at button that caused the segue to decide which theme to show...
-// It's bad and hsould never do that  because what happens when i convert it to french , chinese
-    // I am gonna have code have French and Chinese in it work those languages no !!! it makes no sense
-    //So you never really wanna drive your code from something that's in the UI.
-    // Because UI is gonna be in 40 different languages, you hope if your app is successful
-    //But for demo is good and can be done quickly but for production really worst
- 
-    //name of button title that's what bad design
-    // dictionary has name of theme and theme itself
+
     let themes = [
         "Sports" : "🥎🏀🎳⚽️🏹🏏🏓🏎🥊🎱🚵‍♀️",
         "Animals": "🐲🦢🦞🐇🐈🐒🐍🐔🐧🐸🦄",
         "Faces"  : "😀😇😂🤪🧐🥳🥶🙄🤯😎🤩"
         ]
     
+    //actually now we know how to deal with Any so we aint use UIButton this time
+    //segue is not from button its from 1 viewcontroller to other so it's a generic segue from 1 view controller to other
+    //creation of that generic segue you have to ctrl + drag from yellow circle of viewcontroller to other
+    //MARK :- Manual Segue
+    //This is manual segue you create a segue between 2 viewControllers and then in your code you just say performSegue(withIdentifier: "Choose Theme", sender: sender)
+     //Why would you do a manual Segue? Well you do it whenever you need a conditional segue, you may or may not want a segue here.
+    //You can also use that should perform segue method to conditional segue
     
-    
+    @IBAction func changeTheme(_ sender: Any) {
+        performSegue(withIdentifier: "Choose Theme", sender: sender)
+    }
+   
     
     
     
@@ -45,23 +47,7 @@ class ConcentrationThemeChooserViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //        if segue.identifier == "Choose Theme"{
-        //            if let button = sender as? UIButton{
-        //                if let themeName = button.currentTitle{
-        //                    if let theme = themes[themeName]{
-        //
-        //                    }
-        //                }
-        //            }
-        //        }
-        
-        //        if segue.identifier == "Choose Theme"{
-        //            if let button = sender as? UIButton{
-        //                if let themeName = button.currentTitle,let theme = themes[themeName]
-        //                {
-        //                }
-        //            }
-        //        }
+
         
         if segue.identifier == "Choose Theme"{
             //Optional Chaining

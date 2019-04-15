@@ -280,7 +280,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                         <state key="normal" title="Sports"/>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="showDetail" identifier="Choose Theme" id="mb8-0m-ffV"/>
+                                            <action selector="changeTheme:" destination="0vU-24-Fap" eventType="touchUpInside" id="8Tn-Sv-h1j"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BvO-Oa-Jzn">
@@ -288,7 +288,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                         <state key="normal" title="Faces"/>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="showDetail" identifier="Choose Theme" id="vLv-cr-j2M"/>
+                                            <action selector="changeTheme:" destination="0vU-24-Fap" eventType="touchUpInside" id="u5D-Dd-frz"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AZK-aL-06H">
@@ -296,7 +296,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                         <state key="normal" title="Animals"/>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="showDetail" identifier="Choose Theme" id="gUz-Fv-LiP"/>
+                                            <action selector="changeTheme:" destination="0vU-24-Fap" eventType="touchUpInside" id="Qbl-t4-eyU"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -310,6 +310,9 @@
                         <viewLayoutGuide key="safeArea" id="FkN-3P-Ytk"/>
                     </view>
                     <navigationItem key="navigationItem" id="dvw-Yo-lzY"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="showDetail" identifier="Choose Theme" id="pM7-uh-NfJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PO2-1L-xI3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -350,6 +353,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="mMh-15-swg"/>
+        <segue reference="pM7-uh-NfJ"/>
     </inferredMetricsTieBreakers>
 </document>
