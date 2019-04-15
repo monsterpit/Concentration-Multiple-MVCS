@@ -22,6 +22,7 @@
 		2C7F68422258A34B0057E51D /* ARC.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2C7F68412258A34B0057E51D /* ARC.pdf */; };
 		2CBA3DB822592E15002F37A1 /* String.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 2CBA3DB722592E15002F37A1 /* String.rtf */; };
 		2CBA3DBA22593F87002F37A1 /* NSAttributedStrings.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 2CBA3DB922593F87002F37A1 /* NSAttributedStrings.rtf */; };
+		9B1DA26D22644DAC008C5231 /* ConcentrationThemeChooserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1DA26C22644DAC008C5231 /* ConcentrationThemeChooserViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		2C7F68412258A34B0057E51D /* ARC.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ARC.pdf; sourceTree = "<group>"; };
 		2CBA3DB722592E15002F37A1 /* String.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = String.rtf; sourceTree = "<group>"; };
 		2CBA3DB922593F87002F37A1 /* NSAttributedStrings.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = NSAttributedStrings.rtf; sourceTree = "<group>"; };
+		9B1DA26C22644DAC008C5231 /* ConcentrationThemeChooserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcentrationThemeChooserViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				2CBA3DB722592E15002F37A1 /* String.rtf */,
 				2CBA3DB922593F87002F37A1 /* NSAttributedStrings.rtf */,
 				2C79A7A6225BB8C300B620FC /* FunctionTypes.rtf */,
+				9B1DA26C22644DAC008C5231 /* ConcentrationThemeChooserViewController.swift */,
 			);
 			path = "Concentration Multiple MVCS";
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B1DA26D22644DAC008C5231 /* ConcentrationThemeChooserViewController.swift in Sources */,
 				2C0F44B92248C52300E468FC /* ConcentrationViewController.swift in Sources */,
 				2C0F44B72248C52300E468FC /* AppDelegate.swift in Sources */,
 				2C0F44CA2248EDDC00E468FC /* Concentration.swift in Sources */,

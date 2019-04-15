@@ -5,7 +5,8 @@
 //  Created by MB on 3/25/19.
 //  Copyright © 2019 MB. All rights reserved.
 //
-
+// we call viewcontollers in storyboard "Scenes"
+//everytime we have a viewcontroller it needs a viewcontroller subclass to control it
 import UIKit
 
 //Renaming class name to ConcentrationViewController from ViewController using cmd + click
