@@ -65,7 +65,7 @@ class ConcentrationViewController: UIViewController {
     }
     
     private func updateViewFromModel(){
-        
+        //po cardButtons on console to see number coming nil  //left side thread error is called "call stack"
         for index in cardButtons.indices
         {
             let button = cardButtons[index]

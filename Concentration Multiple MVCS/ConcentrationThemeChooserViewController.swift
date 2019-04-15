@@ -57,6 +57,10 @@ class ConcentrationThemeChooserViewController: UIViewController {
             //Optional Chaining
             if let themeName = (sender as? UIButton)?.currentTitle,let theme = themes[themeName]
             {
+                //downcast the UIViewController to ConcentrationViewController using as?
+                if let cvc = segue.destination as? ConcentrationViewController{
+                    cvc.theme = theme
+                }
             }
         }
     }
