@@ -18,7 +18,7 @@
 //The other thing you can do that's kinda cool is you can reorder the tabs
 import UIKit
 
-class ConcentrationThemeChooserViewController: UIViewController {
+class ConcentrationThemeChooserViewController: UIViewController ,UISplitViewControllerDelegate{
     
     
     
@@ -27,6 +27,28 @@ class ConcentrationThemeChooserViewController: UIViewController {
         "Animals": "🐲🦢🦞🐇🐈🐒🐍🐔🐧🐸🦄",
         "Faces"  : "😀😇😂🤪🧐🥳🥶🙄🤯😎🤩"
     ]
+    
+    
+    
+    
+    //even in iPhone its in splitView Controller even if it doesn't show it as splitView controller
+    
+    //awake from is a function that's called on every object that comes out of your Interface Builder file
+    //Here you would never extremely unlikely that you would ever build this whole splitView navigation controller tab bar thing in code that would be a lot of messy code.
+    //You are gonna build it in  a storyboard so it's okay for me to do this little split trick in awakeFromNib
+    //I dont have to worry about this being created somewhere else
+    
+    override func awakeFromNib() {
+        splitViewController?.delegate = self
+    }
+    
+
+    
+    
+    
+    
+    
+    
     
     //actually now we know how to deal with Any so we aint use UIButton this time
     //segue is not from button its from 1 viewcontroller to other so it's a generic segue from 1 view controller to other
