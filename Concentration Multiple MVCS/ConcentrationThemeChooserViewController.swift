@@ -43,6 +43,27 @@ class ConcentrationThemeChooserViewController: UIViewController ,UISplitViewCont
     }
     
 
+    //secondaryViewController is detail and primaryViewController is the master
+    //I am adapting to the fact that I'm a splitViewController on an iPhone and I want to collapse the detail using the navigationController on top of the primary the master . Should I Do it?
+    //unfortunately the return value of this seems like it should be true do it.
+    //But actually if we wanna prevent this from happening we return true
+    //And the reason that happens is if you return false from this method, You are basically saying I did not collapse this for you so you do it.So return value is kind of inverse.
+    
+    //The bottom line is if we don't want that collapsing  to happen we need to return true
+    //So when do we not want it to collapse?
+    //Well we dont it to collapse anytime that secondaryViewController that concentration game, has a nill theme
+    // If it has a nil theme then the theme never been set we don't wanna do that collapse
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
+        
+        if let cvc = secondaryViewController as? ConcentrationViewController{
+            if cvc.theme == nil{
+                //I collapsed it and it's not going to get done
+                return true
+            }
+        }
+        //false means no i didn't collapsed so you should do it.
+        return false
+    }
     
     
     
