@@ -5,7 +5,7 @@
 //  Created by Boppo on 15/04/19.
 //  Copyright © 2019 MB. All rights reserved.
 //
-
+//SplitViewController (1) Launch Setting -> Display & Brightness -> View -> Standard -> Set
 import UIKit
 
 class ConcentrationThemeChooserViewController: UIViewController {
