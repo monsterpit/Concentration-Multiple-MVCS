@@ -1,0 +1,98 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 LucidaGrande;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{check\}}{\leveltext\leveltemplateid1\'01\uc0\u10003 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\margl1440\margr1440\vieww9000\viewh8400\viewkind0
+\pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\pardirnatural\qc\partightenfactor0
+\ls1\ilvl0
+\f0\fs24 \cf0 {\listtext	
+\f1 \uc0\u10003 
+\f0\b 	}
+\b0 Timer\
+\pard\tx560\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx560\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-19 at 7.52.08 PM.png \width15020 \height4620 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+\
+Timer isn't used for animation\
+You wouldn't use a timer to do animation.\
+But sometimes it's used to concert with animation\
+\
+
+\b Timer is a super simple little struct , very simple struct
+\b0 \
+ \
+
+\b It's basically made for you to give it a closure a little function which will execute sometime in the future
+\b0  . And you tell it how much , 2 seconds in the future , ten seconds , a minute , an hour ,and it will go and execute that code. and it can do it every hour if you want or every seconds or it can just do it one time.\
+\
+So how do we use Timer?\
+The easiest way to use timer is to use this class function on timer called 
+\b scheduledTimer
+\b0 .\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-19 at 7.52.39 PM.png \width14220 \height6800 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\b \cf0 scheduledTimer 
+\b0 only
+\b  
+\b0 has 3 arguments one is the time interval to wait until it executes it , whether it repeats it or keeps doing it and the block of code which is a simple block that takes a timer as the arguments and returns nothing and it will  execute that code .\
+\
+So there's a example \
+where we have a private weak var which is timer .\
+And I have set that var to the result of calling timer scheduleTimer (here we are doing time interval of 2 seconds and it does repeat so every 2 seconds  it's going to implement your code here and everytime it calls it , it passes the timer back to you , So that you have at hands this by putting this in a var I wouldn't need it but it's nice to pass it in there in case that you dont' want to store it around the var )\
+\
+
+\b Now why did i make it weak?
+\b0 \
+I made it weak because as soon as that timer stops running either it wasn't a repeating timer or  because someone stopped it from repeating then no one else will have a strong pointer to it.\
+So if I don't have a strong  pointer to it what will happen to this timer var , it will set to nil which is great .\
+So this time time var will automatically get to nil as soon as the timer is stopped .\
+\
+So I can always tell whether the timer is  running by whether that var is nil or not \
+\
+\
+\
+\
+\
+\
+
+\b So how do you stop a repeating timer?   
+\b0 \
+timer going off every 2 seconds , well you can just send the message 
+\b invalidate
+\b0  to the timer and it will no longer run .\
+Infact invalidate is going to throw it out of the heap and set our weak var to nil and it's all gonna be done \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx560\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2019-04-19 at 8.34.02 PM.png \width14860 \height7200 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx560\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 In timer you can also specify tolerance on your timer that just say's if this timer goes off once an hour it's okay if it goes thirty seconds earlier thirty seconds late it's fine \
+Why would you want to set a tolerance because it could be  help the system be a little more battery efficient \
+because system might not be awake exactly one hour later  it might be sleeping but it might wake up to check cellular status or something like that and then it could run it .\
+So if you give it a little tolerance it won't have to wake up specifically to try and run your timer\
+Btw these timer even if you have a tolerance of zero they don't run right on the microsecond of when you specify \
+These are not microsecond level timers\
+They probably in practice they are probably tenth or a hundredth of second very reliably \
+but these are for real time animation or something like that\
+\
+So can the timer run when the app is in the background ??\
+once the thing has gone to the suspended state no\
+nothing in your app but in that 30 seconds where it's not fully backgrounded it could run in that short time \
+\
+\
+}
